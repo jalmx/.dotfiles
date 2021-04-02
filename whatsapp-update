@@ -4,7 +4,7 @@ NAME_APP=WhatsAppWeb-linux-x64
 DIR_SAVE=/home/xizuth/$NAME_APP
 
 echo descargando whatsapp
-nativefier "https://web.whatsapp.com/" 
+nativefier "https://web.whatsapp.com/"
 
 echo "Limpiando whatsapp"
 sudo rm -rf /opt/$NAME_APP
