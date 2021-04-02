@@ -1,7 +1,7 @@
 #! /bin/bash
 
 NAME_APP=WhatsAppWeb-linux-x64
-DIR_SAVE=/home/xizuth/$NAME_APP
+DIR_SAVE=$HOME/$NAME_APP
 
 echo descargando whatsapp
 nativefier "https://web.whatsapp.com/"
