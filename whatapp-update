@@ -1,0 +1,44 @@
+#! /bin/bash
+
+NAME_APP=WhatsAppWeb-linux-x64
+DIR_SAVE=/home/xizuth/$NAME_APP
+
+echo descargando whatsapp
+nativefier "https://web.whatsapp.com/" 
+
+echo "Limpiando whatsapp"
+sudo rm -rf /opt/$NAME_APP
+
+echo "moviendo whatsapp"
+sudo mv -f $DIR_SAVE /opt/
+echo "muevo $DIR_SAVE a opt"
+
+echo "me muevo a la carpeta de whatsapp en opt"
+cd /opt/$NAME_APP
+
+echo "dando permisos a chrome sandbox"
+
+sudo chmod 4755  chrome-sandbox
+sudo chmod +x WhatsAppWeb
+
+echo cambiando propietario a la carperta /opt/$NAME_APP
+
+sudo chown root:root -R /opt/$NAME_APP
+
+echo "creando script"
+
+TEMP_SCRIPT=/tmp/whatsapp
+BIN_WHATSAPP=/bin/whatsapp
+
+sudo rm $BIN_WHATSAPP
+
+sudo touch TEMP_SCRIPT
+
+sudo echo "#! /bin/bash" >> $TEMP_SCRIPT
+sudo echo "/opt/$NAME_APP/WhatsAppWeb --no-sandbox" >> $TEMP_SCRIPT
+
+sudo chown root:root $TEMP_SCRIPT
+sudo chmod +x $TEMP_SCRIPT
+
+sudo mv $TEMP_SCRIPT $BIN_WHATSAPP
+
