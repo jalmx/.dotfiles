@@ -29,7 +29,7 @@ TEMP_SCRIPT=/tmp/whatsapp
 BIN_WHATSAPP=/bin/whatsapp
 
 sudo rm $BIN_WHATSAPP
-sudo rm $TEMP_SCRIPT
+sudo rm $TEMP_SCRIPT 2> /dev/null
 
 touch $TEMP_SCRIPT
 
