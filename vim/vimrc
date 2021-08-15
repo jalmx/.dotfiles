@@ -1,0 +1,114 @@
+" configuracion basica vim
+
+" se ajusta la codificacion
+set encoding=UTF-8
+" se configura la numeracion del costado
+set number
+" se ajusta los numeros relativos
+set rnu
+" Break lines at word (requires Wrap lines)
+set linebreak
+"Wrap-broken line prefix
+set showbreak=+++
+"Line wrap (number of cols)
+set textwidth=80
+" Show partial command you type in the last line of the screen.
+set showcmd
+" Enable auto completion menu after pressing TAB.
+set wildmenu
+" Make wildmenu behave like similar to Bash completion.
+set wildmode=list:longest
+"Highlight matching brace
+set showmatch
+set hlsearch	" Highlight all search results
+set smartcase	" Enable smart-case search
+set ignorecase	" Always case-insensitive
+set incsearch	" Searches for strings incrementally
+set autoindent	" Auto-indent new lines
+set shiftwidth=4	" Number of auto-indent spaces
+set smartindent	" Enable smart-indent
+set smarttab	" Enable smart-tabs
+set softtabstop=4	" Number of spaces per Tab
+" es para la barra que sale abajo
+set laststatus=2
+set noshowmode
+" Set the commands to save in history default number is 20.
+set history=1000
+" Show row and column ruler information
+set ruler
+" Number of undo levels
+set undolevels=1000
+" Highlight cursor line underneath the cursor horizontally.
+set cursorline
+" Highlight cursor line underneath the cursor vertically.
+set cursorcolumn
+" Use space characters instead of tabs.
+set expandtab
+" es para que active la sintaxis de colores
+syntax on
+" Enable type file detection. Vim will be able to try to detect the type of file in use.
+filetype on
+" Enable plugins and load plugin for the detected file type.
+filetype plugin on
+" Load an indent file for the detected file type.
+filetype indent on
+
+" Configuracion de shortcuts
+let mapleader=" "
+
+nmap <Leader>w :w <CR>
+nmap <Leader>q :q <CR>
+nmap <Leader>Q :q! <CR>
+nmap <Leader>x :x <CR>
+nmap <Leader>so :w <CR> :so % <CR>
+nmap <Leader>n :set rnu!<CR>
+
+" PLUGINS ---------------------------------------------------------------- {{{
+
+" instalacion y configuracion de Plug para vim
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" configuracion para plugins
+call plug#begin('~/.vim/plugged')
+
+Plug 'tpope/vim-sensible'
+" el explorador de archivos
+Plug 'preservim/nerdtree'
+Plug 'preservim/nerdcommenter'
+"La barrita de abajo
+Plug 'itchyny/lightline.vim'
+"para los iconos de nerdTree
+Plug 'ryanoasis/vim-devicons'
+"
+Plug 'dense-analysis/ale'
+Plug 'tpope/vim-surround'
+
+"markdown
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+
+call plug#end()
+
+" configuracion para los plugins
+" cuando precione Leader + b, salga NERDTree
+nmap <Leader>b :NERDTreeToggle<CR>
+
+nmap <Leader>) ysiw)
+nmap <Leader>( ysiw)
+nmap <Leader>[ ysiw]
+nmap <Leader>] ysiw[
+
+" configuro mi *surround-customizing* para envolver en $
+autocmd FileType md let b:surround_36 = "$\r$"
+let g:surround_36 = "$\r$"
+" mapea un shortcut para envolver
+nmap <Leader>$ yss$
+
+" }}}
+
+""" leer ese post para terminar la configuracion
+""" https://www.freecodecamp.org/news/vimrc-configuration-guide-customize-your-vim-editor/
