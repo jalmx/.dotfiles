@@ -8,3 +8,11 @@
   - Instalacion y configuracion de `bspwm`
   - Instalacion de programas que uso
   - script para que copie todos los scripts en donde deben ir
+
+# Programs
+
+install config vim
+
+```bash
+bash vim/install.sh
+```

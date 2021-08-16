@@ -63,8 +63,9 @@ nmap <Leader>w :w <CR>
 nmap <Leader>q :q <CR>
 nmap <Leader>Q :q! <CR>
 nmap <Leader>x :x <CR>
-nmap <Leader>so :w <CR> :so % <CR>
-nmap <Leader>n :set rnu!<CR>
+nmap <Leader>so :so % <CR> 
+nmap <Leader>N :set rnu! <CR>
+nmap <Leader>c :noh <CR>
 
 " PLUGINS ---------------------------------------------------------------- {{{
 
@@ -89,7 +90,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'itchyny/lightline.vim'
 "para los iconos de nerdTree
 Plug 'ryanoasis/vim-devicons'
-"para autosave
+"para autosave se activa con :AutoSaveToggle -> On
 Plug '907th/vim-auto-save'
 "plugin para  git
 if has('nvim') || has('patch-8.0.902')
@@ -98,11 +99,23 @@ else
   Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
 endif
 Plug 'dense-analysis/ale'
+" se colocan los parentesis, llaves indicando como se envolveran las palabras o
+" lines
 Plug 'tpope/vim-surround'
+" Se agrega una navegacion tipo tmux
+Plug 'christoomey/vim-tmux-navigator'
 
 "markdown
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+"Latex math
+Plug 'brennier/quicktex'
+
+"Multi cursor
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+
+"Support editor config
+Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
 
@@ -127,7 +140,7 @@ autocmd FileType md let b:surround_36 = "$\r$"
 let g:surround_36 = "$\r$"
 " mapea un shortcut para envolver con el simbolo de $, es mas rapido el la
 " tecla del 4
-nmap <Leader>$ yss4
+nmap <Leader>4 yss$
 
 " }}}
 
