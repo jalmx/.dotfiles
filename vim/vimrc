@@ -6,6 +6,9 @@ set encoding=UTF-8
 set number
 " se ajusta los numeros relativos
 set rnu
+"para que el ancho de los numeros laterales no se mueva y se mantenga del mismo
+"ancho
+set numberwidth=1
 " Break lines at word (requires Wrap lines)
 set linebreak
 "Wrap-broken line prefix
@@ -41,7 +44,7 @@ set undolevels=1000
 " Highlight cursor line underneath the cursor horizontally.
 set cursorline
 " Highlight cursor line underneath the cursor vertically.
-set cursorcolumn
+"set cursorcolumn
 " Use space characters instead of tabs.
 set expandtab
 " es para que active la sintaxis de colores
@@ -76,14 +79,24 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-sensible'
-" el explorador de archivos
+"para moverse rapido en las busquedas
+Plug 'easymotion/vim-easymotion'
+"el explorador de archivos
 Plug 'preservim/nerdtree'
+" para colocar comentarios
 Plug 'preservim/nerdcommenter'
 "La barrita de abajo
 Plug 'itchyny/lightline.vim'
 "para los iconos de nerdTree
 Plug 'ryanoasis/vim-devicons'
-"
+"para autosave
+Plug '907th/vim-auto-save'
+"plugin para  git
+if has('nvim') || has('patch-8.0.902')
+  Plug 'mhinz/vim-signify'
+else
+  Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
+endif
 Plug 'dense-analysis/ale'
 Plug 'tpope/vim-surround'
 
@@ -94,19 +107,27 @@ Plug 'plasticboy/vim-markdown'
 call plug#end()
 
 " configuracion para los plugins
+"
+"para la actualizacion del plugin de git
+set updatetime=100
+" configurando easymotio
+nmap <Leader>f <Plug>(easymotion-s2)
+
 " cuando precione Leader + b, salga NERDTree
 nmap <Leader>b :NERDTreeToggle<CR>
 
-nmap <Leader>) ysiw)
-nmap <Leader>( ysiw)
+" para agregrar simbolo
+" "coloca el parentesis, no le puse el simbolo porque es mas rapido el numeros en las lineas
+nmap <Leader>0 ysiw) nmap <Leader>9 ysiw)
 nmap <Leader>[ ysiw]
 nmap <Leader>] ysiw[
 
 " configuro mi *surround-customizing* para envolver en $
 autocmd FileType md let b:surround_36 = "$\r$"
 let g:surround_36 = "$\r$"
-" mapea un shortcut para envolver
-nmap <Leader>$ yss$
+" mapea un shortcut para envolver con el simbolo de $, es mas rapido el la
+" tecla del 4
+nmap <Leader>$ yss4
 
 " }}}
 
