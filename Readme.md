@@ -9,6 +9,11 @@
   - Instalacion de programas que uso
   - script para que copie todos los scripts en donde deben ir
 
+# Order
+
+1. install.sh
+2. util/*
+
 # Programs
 
 install config vim
