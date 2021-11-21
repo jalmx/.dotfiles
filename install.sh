@@ -14,9 +14,9 @@ sudo apt install bluez-tools bluez-tests bluez-btsco bluez-dbg bluez-obexd bluez
 sudo apt install rfkill rfdump rfcdiff  -y
 
 echo "=============================installing util================================"
-sudo apt install scrot -y
-sudo apt install feh -y
-sudo apt install vim -y
+sudo apt install scrot -y # take screenshot
+sudo apt install feh -y   # config wallpaper
+sudo apt install vim -y   # editor
 
 echo "=========================install python utils========================================"
 sudo apt install python3-pip
