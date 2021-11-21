@@ -13,6 +13,11 @@
 
 1. install.sh
 2. util/*
+3. Separar la utileria de python
+4. Tools
+  - ranger
+  - bpytop
+  - 
 
 # Programs
 
