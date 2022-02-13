@@ -24,13 +24,9 @@ sudo apt install python3-venv
 pip3 install ranger-fm
 pip3 install bpytop --upgrade
 
-echo "==============================config path========================="
+echo "============================== AGREGANDO PATHS========================="
 echo "export PATH=$PATH/.local/bin" >> $HOME/.zshrc
 
-echo "=========================cambiando permisos a archivos====================================="
-sudo chmod +x -R ./utils/*
+echo "Instalando SDKMAN"
 
-echo "============================ejecutando scripts de instalacion==============================="
-
-
-echo "ejecutando scripts de instalacion"
+curl -s "https://get.sdkman.io" | bash # install sdkman
