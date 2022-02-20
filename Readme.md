@@ -10,14 +10,7 @@
   - script para que copie todos los scripts en donde deben ir
 
 # Order
-
-1. install.sh
-2. util/*
-3. Separar la utileria de python
-4. Tools
-  - ranger
-  - bpytop
-  - 
+Crear script que corra stow
 
 # Programs
 
