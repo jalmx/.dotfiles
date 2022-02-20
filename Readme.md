@@ -10,6 +10,7 @@
   - script para que copie todos los scripts en donde deben ir
 
 # Order
+
 Crear script que corra stow
 
 # Programs
