@@ -56,6 +56,7 @@ filetype plugin on
 " Load an indent file for the detected file type.
 filetype indent on
 
+
 " Configuracion de shortcuts
 let mapleader=" "
 
@@ -116,50 +117,32 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
 "Support editor config
 Plug 'editorconfig/editorconfig-vim'
-" parentesis arcoiris
+$" parentesis arcoiris$
 Plug 'kien/rainbow_parentheses.vim'
 "coc
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 
 "theme
-Plug 'morhetz/gruvbox'
+" Plug 'morhetz/gruvbox'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()
 
+" theme dracula
+colorscheme dracula
+
+
+set guifont=JetBrains_Mono:h11
+
 " configuracion para los plugins
-" theme config
-colorscheme gruvbox
-let g:gruvbox_contrast_dark = "hard"
-set termguicolors
+
 "config auto save
 let g:auto_save = 1  " enable AutoSave on Vim startup
 "para la actualizacion del plugin de git
 set updatetime=100
 " configurando easymotio
 nmap <Leader>f <Plug>(easymotion-s2)
-"config de rainbow arcoiris
-let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['black',       'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ]
-
-let g:rbpt_max = 16
-let g:rbpt_loadcmd_toggle = 0
 
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
