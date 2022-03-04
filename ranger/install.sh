@@ -2,9 +2,6 @@
 
 pip3 install ranger-fm
 
-# create simbolic link to rc.conf
-ln -sf .config/ranger/rc.conf $HOME/.config/ranger
-
 # install devicon
 
 echo "installing devicon"
