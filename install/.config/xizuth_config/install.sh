@@ -16,7 +16,7 @@ sudo apt install rfkill rfdump rfcdiff  -y > /dev/null
 echo "=============================installing util================================"
 sudo apt install scrot -y > /dev/null # take screenshot
 sudo apt install feh -y  > /dev/null # config wallpaper
-sudo apt install vim -y  > /dev/null # editor
+#sudo apt install neovim -y  > /dev/null # editor # descargarlo de github
 
 echo "=========================install python utils========================================"
 sudo apt install python3-pip
