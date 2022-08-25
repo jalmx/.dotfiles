@@ -1,0 +1,13 @@
+#!/bin/bash
+
+## use
+## compresspdf input_file.pdf output_file.pdf
+
+input_file=$1
+output_file=$2
+
+echo "Pdf input: $input_file"
+echo "PDF output: $output_file"
+
+gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.6 -dPDFSETTINGS=/screen -dNOPAUSE -dBATCH -dQUIET -sOutputFile=$output_file $input_file
+
