@@ -1,0 +1,20 @@
+#! /bin/bash
+
+## build by Xizuth 
+## 
+
+if [[ -z $1 ]]
+then
+    echo "Need one argument file svg"
+    echo "Example file.svg"
+    exit 1
+fi
+
+echo "Conviritiendo $1 a png"
+
+new_name="$(echo $1 | sed -e 's/.svg/.png/g')"
+inkscape -w 1024  $1 -o $new_name 2> /dev/null
+
+pngquant --force $new_name --output $new_name
+
+echo Done
